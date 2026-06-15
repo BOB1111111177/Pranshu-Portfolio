@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranshu Yadav | BEP2O Digital Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1e36;
+    --navy-mid: #1a2f50;
+    --gold: #c9a84c;
+    --gold-light: #e2c97e;
+    --cream: #f5f0e8;
+    --white: #ffffff;
+    --text-dark: #1a1a2e;
+    --text-mid: #3d3d5c;
+    --text-light: #7a7a99;
+    --card-bg: rgba(255,255,255,0.07);
+    --card-border: rgba(201,168,76,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(15,30,54,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 30%, rgba(201,168,76,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 60% at 80% 80%, rgba(26,47,80,0.8) 0%, transparent 60%);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--white);
+    position: relative;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .hero-quote-box {
+    max-width: 640px;
+    position: relative;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    margin: 0 auto;
+  }
+
+  .hero-quote-box blockquote {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.88);
+    font-style: italic;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-quote-box cite {
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .scroll-cue {
+    margin-top: 4rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .scroll-cue::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 100px 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin-bottom: 3rem;
+    border-radius: 2px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  /* ── MVV ── */
+  .mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .mvv-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mvv-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--gold), var(--gold-light));
+  }
+
+  .mvv-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .mvv-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .mvv-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.82);
+  }
+
+  .values-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .value-tag {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+
+  .rationale-box {
+    background: rgba(201,168,76,0.07);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 1.5rem 2rem;
+  }
+
+  .rationale-box p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.82);
+  }
+
+  /* ── SMART GOALS ── */
+  .goal-block {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .goal-statement {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .smart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .smart-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.2rem;
+  }
+
+  .smart-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.5;
+    line-height: 1;
+  }
+
+  .smart-word {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .smart-item p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .tracker-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .tracker-table th {
+    background: rgba(201,168,76,0.2);
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .tracker-table td {
+    padding: 1rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    vertical-align: top;
+  }
+
+  .reflection-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .rq-item {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 3px solid var(--gold);
+  }
+
+  .rq-item .q {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .rq-item p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.82);
+  }
+
+  /* ── ENTREPRENEUR ── */
+  .entrepreneur-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .ent-header {
+    background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(15,30,54,0.5));
+    padding: 3rem;
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .ent-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--navy-mid));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--white);
+    flex-shrink: 0;
+    border: 2px solid var(--gold);
+  }
+
+  .ent-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .ent-header p {
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .ent-body {
+    padding: 2.5rem;
+  }
+
+  .ent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .ent-block h4 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .ent-block p, .ent-block li {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .ent-block ul { padding-left: 1rem; }
+
+  /* ── CLASSROOM TASKS ── */
+  .tasks-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .task-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .task-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  .task-card.featured {
+    border-color: rgba(201,168,76,0.5);
+    box-shadow: 0 0 40px rgba(201,168,76,0.08);
+  }
+
+  .task-header {
+    padding: 1.8rem 2rem 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .task-header-left { flex: 1; }
+
+  .task-type {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .task-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .featured-badge {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .mark-badge {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .task-body {
+    padding: 1.5rem 2rem 2rem;
+  }
+
+  .task-body p {
+    font-size: 0.92rem;
+    line-height: 1.78;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .task-highlight {
+    background: rgba(201,168,76,0.07);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.2rem;
+    margin-top: 1.2rem;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* ── COURSE REFLECTION ── */
+  .reflection-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .ref-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .ref-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 1;
+  }
+
+  .ref-content h4 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .ref-content p {
+    font-size: 0.92rem;
+    line-height: 1.78;
+    color: rgba(255,255,255,0.82);
+  }
+
+  /* ── REFERENCES ── */
+  .references-section {
+    border-top: 1px solid var(--card-border);
+    padding-top: 3rem;
+    margin-top: 2rem;
+  }
+
+  .ref-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ref-list li {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .ref-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: rgba(0,0,0,0.3);
+    border-top: 1px solid var(--card-border);
+    padding: 2.5rem 5%;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+  }
+
+  footer strong { color: var(--gold); }
+
+  /* ── FULL-WIDTH WRAPPER ── */
+  .full-width {
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .full-width > * {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  /* ── SECTION BACKGROUNDS ── */
+  .bg-alt {
+    background: rgba(201,168,76,0.03);
+    width: 100%;
+    padding: 100px 0;
+  }
+
+  .bg-alt > section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @media (max-width: 680px) {
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+    .ref-card { grid-template-columns: 1fr; }
+    .ent-header { flex-direction: column; }
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-28px);
+    transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* stagger delays for grid children */
+  .reveal-stagger > *:nth-child(1) { transition-delay: 0s; }
+  .reveal-stagger > *:nth-child(2) { transition-delay: 0.1s; }
+  .reveal-stagger > *:nth-child(3) { transition-delay: 0.2s; }
+  .reveal-stagger > *:nth-child(4) { transition-delay: 0.3s; }
+  .reveal-stagger > *:nth-child(5) { transition-delay: 0.4s; }
+  .reveal-stagger > *:nth-child(6) { transition-delay: 0.5s; }
+
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .reveal-stagger.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── ENHANCED HOVER: CARDS ── */
+  .task-card {
+    transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+  }
+
+  .task-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,168,76,0.55);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(201,168,76,0.15);
+  }
+
+  .mvv-card {
+    transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+  }
+
+  .mvv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.1);
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  .ref-card {
+    transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+  }
+
+  .ref-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201,168,76,0.45);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.25);
+  }
+
+  /* ── NAV ACTIVE INDICATOR ── */
+  .nav-links a {
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 1px;
+    transition: width 0.25s ease;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    width: 100%;
+  }
+
+  .nav-links a.active {
+    color: var(--gold);
+  }
+
+  /* ── HERO ENTRANCE ── */
+  .hero-eyebrow,
+  .hero h1,
+  .hero-sub,
+  .hero-quote-box,
+  .scroll-cue {
+    animation: heroFadeUp 0.8s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .hero h1       { animation-delay: 0.1s; }
+  .hero-sub      { animation-delay: 0.2s; }
+  .hero-quote-box{ animation-delay: 0.35s; }
+  .scroll-cue    { animation-delay: 0.55s; }
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── GOLD PARTICLE DOTS (decorative) ── */
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    bottom: -60px;
+    left: -60px;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo">P. Yadav</div>
+  <ul class="nav-links">
+    <li><a href="#mvv">About</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#entrepreneur">Inspiration</a></li>
+    <li><a href="#tasks">My Work</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <p class="hero-eyebrow">BEP2O Digital Portfolio &nbsp;·&nbsp; 2025–2026</p>
+  <h1>Pranshu <span>Yadav</span></h1>
+  <p class="hero-sub">Grade 10 Business · Entrepreneurship & Personal Finance</p>
+  <div class="hero-quote-box">
+    <blockquote>
+      "We see our customers as invited guests to a party, and we are the host. It's our job every day to make every important aspect of the customer experience a little bit better."
+    </blockquote>
+    <cite>— Jeff Bezos, Founder of Amazon</cite>
+  </div>
+  <div class="scroll-cue">Explore my work</div>
+</div>
+
+<!-- ══ MISSION VISION VALUES ══ -->
+<div class="bg-alt">
+<section id="mvv">
+  <p class="section-eyebrow">Who I Am</p>
+  <h2 class="section-title">Mission, Vision & Values</h2>
+  <div class="section-divider"></div>
+
+  <div class="mvv-grid">
+    <div class="mvv-card">
+      <div class="mvv-icon">🎯</div>
+      <div class="mvv-label">Mission</div>
+      <p>To stay disciplined, work smart, and build the skills I need to succeed in business and entrepreneurship — while making my family proud along the way.</p>
+    </div>
+    <div class="mvv-card">
+      <div class="mvv-icon">🚀</div>
+      <div class="mvv-label">Vision</div>
+      <p>To become a successful entrepreneur who builds meaningful products and delivers outstanding experiences to every customer I serve.</p>
+    </div>
+    <div class="mvv-card">
+      <div class="mvv-icon">⭐</div>
+      <div class="mvv-label">Values</div>
+      <div class="values-row">
+        <span class="value-tag">Smart Work</span>
+        <span class="value-tag">Creativity</span>
+        <span class="value-tag">Family</span>
+        <span class="value-tag">Continuous Improvement</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rationale-box">
+    <p>
+      This quote from Jeff Bezos represents the way I think about entrepreneurship. Just like Amazon was built by putting the customer experience first, I believe real success comes from caring about the people you serve — not just the product or profit. My mission, vision, and values all connect to one idea: that smart work, creativity, and always looking to improve are the things that actually get you somewhere. I saw this in action watching my dad work every single day as a chef, even when things weren't easy. That consistency and dedication is something I carry with me in everything I do — whether it's a group project, a class assignment, or planning for my own future.
+    </p>
+  </div>
+</section>
+</div>
+
+<!-- ══ SMART GOALS ══ -->
+<section id="goals">
+  <p class="section-eyebrow">Personal Development</p>
+  <h2 class="section-title">SMART Goal</h2>
+  <div class="section-divider"></div>
+
+  <div class="goal-block">
+    <p class="goal-statement">
+      "By June 2026, I will increase my overall Grade 10 average to at least 85% by studying for one hour daily, tracking my marks weekly, and asking for help when needed."
+    </p>
+
+    <div class="smart-grid">
+      <div class="smart-item">
+        <div class="smart-letter">S</div>
+        <div class="smart-word">Specific</div>
+        <p>Increase my Grade 10 overall average to at least 85% by focusing on weaker subjects like math and science with daily study sessions.</p>
+      </div>
+      <div class="smart-item">
+        <div class="smart-letter">M</div>
+        <div class="smart-word">Measurable</div>
+        <p>Track test and assignment marks regularly and compare monthly averages to see if I'm hitting the 85% target.</p>
+      </div>
+      <div class="smart-item">
+        <div class="smart-letter">A</div>
+        <div class="smart-word">Achievable</div>
+        <p>I already understand most of the material. If I struggle, I'll ask teachers for help and review notes daily to stay on top.</p>
+      </div>
+      <div class="smart-item">
+        <div class="smart-letter">R</div>
+        <div class="smart-word">Relevant</div>
+        <p>Strong marks will help me qualify for a good university program and prepare me for the business and entrepreneurship path I want to take.</p>
+      </div>
+      <div class="smart-item">
+        <div class="smart-letter">T</div>
+        <div class="smart-word">Time-Bound</div>
+        <p>Deadline is the end of the semester in June 2026 — enough time to see real improvement across all four subjects.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.8rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Progress Tracker</h3>
+    <div style="overflow-x:auto;">
+      <table class="tracker-table">
+        <thead>
+          <tr>
+            <th>SMART Goal Statement</th>
+            <th>Outcome</th>
+            <th>Challenge</th>
+            <th>Next Step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Reach 85% overall average by June 2026 through daily study and weekly mark tracking.</td>
+            <td>Currently at ~81.75% average. Communication Technology (92%), Food & Nutrition (96%), Science (74%), Business (65%). On track with final exams still ahead.</td>
+            <td>Business and science pulled the average down. Business was more challenging than expected, and it was hard to balance all four subjects at once.</td>
+            <td>Focus on the upcoming summatives and exams to push the average above 85%. Keep tracking marks weekly to know exactly where I stand.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:0.8rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;">Reflection</h3>
+    <div class="reflection-questions">
+      <div class="rq-item">
+        <div class="q">What insights have you gained from setting SMART goals?</div>
+        <p>Setting a specific target — 85% — made a real difference compared to just telling myself "I want to do better." Having that exact number gave me something to measure against every time I got a mark back. I started actually paying attention to my grades in a way I hadn't before, and it helped me figure out which subjects needed more time.</p>
+      </div>
+      <div class="rq-item">
+        <div class="q">How has it impacted your ability to achieve both individual and team goals?</div>
+        <p>For my own work, tracking marks weekly kept me honest — I couldn't ignore a bad mark because I was already checking in. For group work, like the Gemtime Watches project or the business venture, having a personal discipline mindset made me show up more organized and take my role more seriously. When you're accountable to yourself, you're naturally more accountable to the team.</p>
+      </div>
+      <div class="rq-item">
+        <div class="q">Specific examples of how SMART criteria helped you stay focused and motivated?</div>
+        <p>The measurable part helped the most. Seeing that my Communication Technology mark was 92% motivated me to keep that up, while seeing Business at 65% told me I had real work to do there. The time-bound deadline of June 2026 also stopped me from saying "I'll do it later." When there's a real date, everything feels more urgent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INSPIRING ENTREPRENEUR ══ -->
+<div class="bg-alt">
+<section id="entrepreneur">
+  <p class="section-eyebrow">Inspiration</p>
+  <h2 class="section-title">Inspiring Entrepreneur</h2>
+  <div class="section-divider"></div>
+
+  <div class="entrepreneur-card">
+    <div class="ent-header">
+      <div class="ent-avatar">E</div>
+      <div>
+        <h3>Elon Musk</h3>
+        <p>Entrepreneur · CEO of Tesla, SpaceX & X · Founder of Neuralink, The Boring Company</p>
+      </div>
+    </div>
+    <div class="ent-body">
+      <div class="ent-grid">
+        <div class="ent-block">
+          <h4>Business Skills</h4>
+          <ul>
+            <li>Visionary thinking and long-term planning</li>
+            <li>Managing multiple companies at the same time</li>
+            <li>Strong financial risk-taking and investment decisions</li>
+            <li>Disrupting industries that were stuck in old ways</li>
+          </ul>
+        </div>
+        <div class="ent-block">
+          <h4>Ethical Awareness</h4>
+          <p>Musk has faced both praise and criticism. On one hand, Tesla's push for electric vehicles is a real contribution to sustainability. On the other hand, his business decisions and public statements have sparked debates about accountability and responsibility as a public figure. Studying him means understanding both sides.</p>
+        </div>
+        <div class="ent-block">
+          <h4>Leadership Style</h4>
+          <p>Extremely goal-driven and hands-on. He sets ambitious targets and pushes his teams hard. He takes major risks, which sometimes results in failure — but he treats failure as data, not defeat. That mindset is something I want to bring into my own approach to business.</p>
+        </div>
+        <div class="ent-block">
+          <h4>Relevant School Courses</h4>
+          <ul>
+            <li>Business & Entrepreneurship (this course)</li>
+            <li>Computer Technology</li>
+            <li>Physics and Engineering</li>
+            <li>Communications and Media Studies</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══ CLASSROOM TASKS ══ -->
+<section id="tasks">
+  <p class="section-eyebrow">Best Work</p>
+  <h2 class="section-title">Classroom Tasks</h2>
+  <div class="section-divider"></div>
+
+  <div class="tasks-grid">
+
+    <!-- Task 1: Business Venture (FEATURED) -->
+    <div class="task-card featured">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-type">Real-World Business Venture &nbsp;·&nbsp; Group Project</div>
+          <div class="task-title">Darts, Basketball & Carnival Fest</div>
+        </div>
+        <div>
+          <div class="featured-badge">⭐ Featured Work</div>
+        </div>
+      </div>
+      <div class="task-body">
+        <p>
+          This was the most hands-on assignment of the year — our group actually ran a real business in the cafeteria. We designed carnival-style games, set prices, managed a budget, and dealt with everything that came up on the day. My specific contributions included coming up with the original game concept, writing the entire risk assessment (which covered everything from a dartboard falling to competition from other vendor groups), and handling all the accounting, including the final income statement.
+        </p>
+        <p style="margin-top:1rem;">
+          We spent $41.53 in total and made $37.35 over two days, ending with a net loss of $4.18. We had a tiered reward system — solo players could win a small reward, and groups of three or four who won together could keep all three prizes — which was designed to bring in more players. However, we bought more prize types than necessary (five instead of the three I suggested), which pushed us over the $40 budget and cut into our margins. We also lost our prime cafeteria spot to another group and didn't advertise as aggressively as I had planned.
+        </p>
+        <div class="task-highlight">
+          What I learned: Having a good idea is not enough — you have to get your team behind it. I suggested buying fewer prizes to keep costs down and advertising more aggressively to pull in customers, but when my teammates went a different direction, I let it go too easily. That's on me as much as it's on the team. Real entrepreneurship means advocating for your plan and convincing people, not just suggesting it once. If we had followed the original plan, we could have made a profit of around $70.
+        </div>
+      </div>
+    </div>
+
+    <!-- Task 2: Career Interview -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-type">Career Exploration &nbsp;·&nbsp; A3.2 &amp; A3.3</div>
+          <div class="task-title">Career Interview — Yogesh Kumar Yadav</div>
+        </div>
+        <div class="mark-badge">10 / 10</div>
+      </div>
+      <div class="task-body">
+        <p>
+          For this assignment, I interviewed my dad, Yogesh Kumar Yadav, who works as a chef at Brar's. I asked him about his career path, his daily responsibilities, what he finds most challenging, and what he wishes he had known starting out. The interview pushed me to think about work differently — not just as a job title, but as something that requires real resilience.
+        </p>
+        <div class="task-highlight">
+          My reflection on this piece: My dad has flat feet, and standing all day in a kitchen is genuinely painful. But he keeps showing up every single day. Seeing someone work that hard for the people around them made me want to match that level of commitment in everything I do — not just school, but in my future business too.
+        </div>
+      </div>
+    </div>
+
+    <!-- Task 3: Infographic -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-type">Visual Design &nbsp;·&nbsp; Group Project</div>
+          <div class="task-title">Green Jar Shop — Infographic on Black-Owned Businesses</div>
+        </div>
+        <div class="mark-badge">10 / 10</div>
+      </div>
+      <div class="task-body">
+        <p>
+          Our group designed a professional infographic for Green Jar Shop, a Black-owned business. The infographic covered the company's environmental approach — including waste minimization and supply chain optimization — as well as its ethical practices like fair trade partnerships and its health and safety standards for workers. Our slogan was "Small Swaps, Big Impacts."
+        </p>
+        <div class="task-highlight">
+          This project showed me that design is a business skill. A well-made infographic does not just look good — it communicates a company's values clearly and quickly to anyone who sees it. That lesson applies to every business, including the ones I want to build.
+        </div>
+      </div>
+    </div>
+
+    <!-- Task 4: Project Management Reflection -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-type">Leadership &amp; Management Reflection</div>
+          <div class="task-title">Stuffie Shelter — Project Management Reflection</div>
+        </div>
+        <div class="mark-badge">9.5 / 10</div>
+      </div>
+      <div class="task-body">
+        <p>
+          In this reflection, I wrote about how our group managed the Stuffie Shelter project — from early planning and leadership decisions to how we delegated roles and adapted during the silent execution phase. I covered what worked well, what got difficult when the plan met reality, and what the experience taught me about how leadership actually functions in a group setting.
+        </p>
+        <div class="task-highlight">
+          The biggest lesson: real leadership is not just giving direction at the start — it is staying present and adjusting when things go sideways. Planning matters, but so does how you respond when the plan does not survive first contact.
+        </div>
+      </div>
+    </div>
+
+    <!-- Task 5: Porsche Case Study -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-type">Business Analysis &nbsp;·&nbsp; Case Study</div>
+          <div class="task-title">Porsche Case Study — Market Segmentation &amp; Strategy</div>
+        </div>
+        <div class="mark-badge">Checked in Class</div>
+      </div>
+      <div class="task-body">
+        <p>
+          This six-page case study had me analyze Porsche's business strategy in depth. I answered six detailed questions covering market segmentation, psychographic profiles, geographic targeting strategies, the launch of the Cayenne (a major business pivot for Porsche), and financial performance. I backed up my analysis with real data — including a 17% profit margin and 237,778 vehicles sold globally.
+        </p>
+        <div class="task-highlight">
+          This assignment pushed me to think like a business analyst, not just a student. Using actual numbers and real company history to support your argument is a skill I will need whether I'm pitching a business idea, presenting to a client, or applying to Rotman Commerce.
+        </div>
+      </div>
+    </div>
+
+    <!-- Task 6: Airplane Challenge -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-type">Hands-On Manufacturing Challenge</div>
+          <div class="task-title">Airplane Challenge — Speed, Quality &amp; Competition</div>
+        </div>
+        <div class="mark-badge">Won Both Events</div>
+      </div>
+      <div class="task-body">
+        <p>
+          In this challenge, we had 30 minutes to design and build paper airplanes as a group. Any plane with a faulty design was immediately disqualified, which meant speed and quality had to go together — you could not sacrifice one for the other. Our group of four split into two pairs: Sneh and Harshul as one team, and Simroz and I as another. We won both the manufacturing speed competition and the throwing distance competition.
+        </p>
+        <div class="task-highlight">
+          Why this mattered: in a real manufacturing or product business, if your product has a defect, the customer does not buy it. If your competitor builds faster, they get to market first. This assignment made that lesson real and competitive in a way that a textbook never could. Winning both events showed me that working smart under pressure is something I can actually do.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ COURSE REFLECTION ══ -->
+<div class="bg-alt">
+<section id="reflection">
+  <p class="section-eyebrow">End-of-Year Reflection</p>
+  <h2 class="section-title">Course Reflection</h2>
+  <div class="section-divider"></div>
+
+  <div class="reflection-grid">
+
+    <div class="ref-card">
+      <div class="ref-num">01</div>
+      <div class="ref-content">
+        <h4>Best Piece of Work</h4>
+        <p>
+          My best piece of work was the Darts, Basketball & Carnival Fest business venture. Even though our group ended with a small net loss, this was the assignment where I applied everything from the course in real life — market research, financial planning, risk assessment, and problem-solving on the spot. I designed the game concept, wrote the full risk assessment, and handled all the accounting. The experience taught me that entrepreneurship is not about perfect execution. It is about understanding your numbers, learning from what went wrong, and doing it better next time. One thing I would change: I should have pushed harder to get my team on board with keeping costs lower and advertising more aggressively. We had the plan. We needed to follow it.
+        </p>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-num">02</div>
+      <div class="ref-content">
+        <h4>Assignment I Liked Most</h4>
+        <p>
+          The assignment I liked most was the airplane challenge. We had 30 minutes to build planes under real competition conditions — faulty designs were instantly out, and whoever built fastest and flew farthest, won. My pair won both categories. What made it stand out was that it felt like a real production scenario. In an actual manufacturing business, a defective product gets rejected, and a slower competitor gets to market first. Those lessons hit differently when you're racing against a clock and competing against classmates than when you're just reading about them.
+        </p>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-num">03</div>
+      <div class="ref-content">
+        <h4>Three Entrepreneurial Skills I Learned</h4>
+        <p>
+          <strong style="color:var(--gold-light);">1. Financial Planning and Cost Control</strong><br>
+          Through the business venture, I learned that profit is not just about making sales — it is about controlling what you spend. I wanted to buy only three types of prizes to stay well under budget, which would have left room for a real profit margin. When we spent more than planned, that margin disappeared. Managing money carefully from the start is a skill that matters in every type of business.
+        </p>
+        <p style="margin-top:1rem;">
+          <strong style="color:var(--gold-light);">2. Time Management Under Pressure</strong><br>
+          The airplane challenge gave me this one directly. With only 30 minutes, you cannot afford to second-guess your design or slow down for perfection. You build, test, adjust, and move. That kind of disciplined time management — doing quality work without wasting a single minute — is something every entrepreneur needs when deadlines are real and competition is watching.
+        </p>
+        <p style="margin-top:1rem;">
+          <strong style="color:var(--gold-light);">3. Team Communication and Leadership</strong><br>
+          During the business venture, I had a clear plan for how to run things more efficiently — lower costs, more advertising, a smarter prize setup. But when I brought it up and the team went a different direction, I let it go instead of making my case properly. What I learned is that leadership is not just coming up with good ideas. It is convincing people to get behind them. You have to explain the reasoning, show why it works, and actually bring people with you. That is the skill I am still building.
+        </p>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-num">04</div>
+      <div class="ref-content">
+        <h4>How Entrepreneurial Skills Will Help Me in the Future</h4>
+        <p>
+          After high school, I want to study at Rotman Commerce at the University of Toronto. After that, I plan to start my own online business — I want to build and sell AI-generated websites for businesses that do not have one yet. I would not do the design work myself. I would be the person who talks to clients, explains the service, closes the deal, and makes sure they understand what they are getting and why it is worth it.
+        </p>
+        <p style="margin-top:0.8rem;">
+          Everything I learned in this course connects directly to that plan. Financial planning helps me price my services correctly and stay profitable. Communication skills help me pitch to clients and handle the back-and-forth of sales. And understanding what customers actually want — not just what they say they want — helps me position my service better than a competitor who just talks about features. Without this course, I would not know how to actually run that business.
+        </p>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-num">05</div>
+      <div class="ref-content">
+        <h4>One Thing I'm Still Learning</h4>
+        <p>
+          One thing I am still working to understand is customer psychology — why people actually decide to say yes or no to a product or service. When I'm running my web design business, I will need to know how to ask the right questions: What problem are they trying to solve? Why did they look for help now? What would make them choose me over someone else? Once I understand those answers, I can explain why my service is worth the price and why it is better than going somewhere cheaper. That skill — reading a customer and responding to what they actually need — is something I did not really study in the course, but it is one of the most important things I will need to build.
+        </p>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-num">06</div>
+      <div class="ref-content">
+        <h4>How School Skills Prepare Me for a Career</h4>
+        <p>
+          A lot of the skills I built this year are directly transferable. Time management — knowing how to work efficiently under a deadline — will matter whether I'm managing multiple clients or preparing for exams at Rotman. Organization is just as important: if I'm running my own business and handling several projects at once, keeping everything sorted and on time is what keeps things from falling apart. And communication — being able to explain an idea clearly, make a quick pitch, and get someone interested in what you're offering — that's a skill I'll use every single day, in any business or career I go into.
+        </p>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-num">07</div>
+      <div class="ref-content">
+        <h4>One Career That Uses Skills From This Course</h4>
+        <p>
+          A marketing manager is a career that would use almost everything I learned this year. In that role, I would need to understand what customers want, build campaigns that reach the right people, manage a budget, and work with a team to get things done on time. All of those things — financial awareness, communication, market research, and teamwork — came directly from BEP2O. The course did not just teach me business concepts; it gave me hands-on practice with the actual skills that role requires every day.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- References -->
+  <div class="references-section">
+    <p class="section-eyebrow" style="margin-bottom:1.2rem;">References</p>
+    <ul class="ref-list">
+      <li>Yadav, P. (2025–2026). <em>BEP2O Digital Portfolio</em>. Course coursework, Grade 10 Business — Entrepreneurship and Personal Finance.</li>
+      <li>Bezos, J. (n.d.). Customer experience quote. Retrieved from Amazon leadership principles and founder letters to shareholders.</li>
+      <li>Porsche AG. (n.d.). Annual report and global sales data. Referenced in BEP2O Case Study assignment, 2025–2026.</li>
+      <li>Green Jar Shop. (n.d.). Company profile. Referenced in Black-Owned Business Infographic assignment, 2025–2026.</li>
+      <li>Smartsheet. (n.d.). <em>Essential guide to writing SMART goals</em>. Retrieved from https://www.smartsheet.com/blog/essential-guide-writing-smart-goals</li>
+      <li>Musk, E. (n.d.). Entrepreneur profile. Referenced in BEP2O Inspiring Entrepreneur assignment, 2025–2026.</li>
+      <li>Yadav, Y. K. (2025–2026). Career interview conducted by P. Yadav for BEP2O Career Exploration assignment.</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p><strong>Pranshu Yadav</strong> &nbsp;·&nbsp; BEP2O Digital Portfolio &nbsp;·&nbsp; 2025–2026</p>
+  <p style="margin-top:0.5rem;">Grade 10 Business — Entrepreneurship and Personal Finance</p>
+</footer>
+
+<script>
+  // ── SCROLL REVEAL ──
+  const revealTargets = document.querySelectorAll(
+    '.goal-block, .task-card, .ref-card, .entrepreneur-card, ' +
+    '.rationale-box, .rq-item, .references-section, ' +
+    '.tracker-table, .reflection-questions, .section-title, .section-divider'
+  );
+
+  revealTargets.forEach(el => el.classList.add('reveal'));
+
+  // stagger grids (mvv, smart, ent)
+  document.querySelectorAll('.mvv-grid, .smart-grid, .ent-grid').forEach(grid => {
+    grid.classList.add('reveal-stagger');
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+  // ── ACTIVE NAV ON SCROLL ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => navObserver.observe(s));
+
+  // ── SMOOTH NAV CLICK WITH OFFSET FOR FIXED BAR ──
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
